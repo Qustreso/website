@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Qustreso</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            color: white;
+            padding: 12px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar img.logo {
+            position: absolute;
+            left: 40px;
+            height: 40px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .nav-buttons a:hover {
+            color: #cccccc;
+        }
+
+        /* CONTENT STYLING */
+        .content {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .contact-method {
+            margin-bottom: 40px;
+        }
+
+        .contact-method h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #000;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s ease, background-color 0.3s;
+        }
+
+        .contact-button:hover {
+            transform: scale(1.05);
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <div class="navbar">
+        <img class="logo" src="Images/Logo.jpg" alt="Qustreso Studios">
+        <div class="nav-buttons">
+            <a href="index.html">Home</a>
+            <a href="PastWork.html">Past Work</a>
+            <a href="Hire.html">Hire Me</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        <h1>To hire me you can</h1>
+
+        <div class="contact-method">
+            <h3>DM me on Discord</h3>
+            <a href="https://discord.com/users/1146923509856096397" class="contact-button" target="_blank">Message on Discord</a>
+        </div>
+
+        <div class="contact-method">
+            <h3>Create a ticket on my Discord server</h3>
+            <a href="https://discord.gg/b5zEhYPKMv" class="contact-button" target="_blank">Open Ticket</a>
+        </div>
+
+        <div class="contact-method">
+            <h3>DM me on Twitter</h3>
+            <a href="X.com/QUSTRESO" class="contact-button" target="_blank">Message on Twitter</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
