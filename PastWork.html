@@ -10,7 +10,6 @@
             background-color: #ffffff;
         }
 
-        /* NAVIGATION BAR */
         .navbar {
             display: flex;
             justify-content: center;
@@ -46,18 +45,9 @@
             color: #cccccc;
         }
 
-        /* PAGE CONTENT */
         .content {
             text-align: center;
             padding: 60px 20px;
-        }
-
-        .content img.header-img {
-            width: 100%;
-            max-height: 1750px;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto 20px;
         }
 
         .content h1 {
@@ -69,78 +59,22 @@
             font-size: 20px;
         }
 
-        /* ICON STATS */
-        .stats {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            text-align: center;
-            gap: 80px;
-            margin: 60px 0 20px;
-        }
-
-        .stat-item {
-            width: 220px;
-        }
-
-        .stat-item img {
-            height: 250px;
-            margin-bottom: 20px;
-        }
-
-        .stat-item h3, .stat-item h5 {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .stat-item.visible h3,
-        .stat-item.visible h5 {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stat-item h3 {
-            font-size: 50px;
-            margin: 5px 0;
-        }
-
-        .stat-item h5 {
-            font-size: 15px;
-            font-weight: 400;
-            margin: 0;
-        }
-
-        .stat-bottom {
-            margin-top: 50px;
-        }
-
-        .vouches {
+        .embed-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            padding: 20px 40px 80px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 20px;
             justify-items: center;
+            max-width: 1200px;
+            margin: auto;
         }
 
-        .vouches img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* EMBED RESPONSIVE VIDEO */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            padding-top: 25px;
+            padding-bottom: 56.25%;
             height: 0;
-            margin: 40px auto;
-            max-width: 800px;
+            width: 100%;
+            max-width: 560px;
         }
 
         .video-wrapper iframe {
@@ -152,37 +86,10 @@
             border: 0;
         }
 
-        .embed-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    padding: 20px;
-    justify-items: center;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 ratio */
-    height: 0;
-    width: 100%;
-    max-width: 560px;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-.twitter-tweet {
-    max-width: 560px;
-    width: 100%;
-}
+        .twitter-tweet {
+            max-width: 560px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -193,25 +100,15 @@
         <div class="nav-buttons">
             <a href="index.html">Home</a>
             <a href="PastWork.html">Past work</a>
-            <a href="Hire.Html">Hire Me</a>
+            <a href="Hire.html">Hire Me</a>
         </div>
     </div>
 
-    <!-- PAGE CONTENT -->
+    <!-- CONTENT -->
     <div class="content">
-
-        <p>I can do anything from:
-MMO RPG Systems,
-Combat System,
-Main Menu System,
-Data Store's,
-Complex Systems,
-Abilities,
-Stat Systems,
-RNG Systems
-And Much More.</p>
-
-
+        <p>I can do anything from:<br>
+        MMO RPG Systems, Combat System, Main Menu System, Data Store's,<br>
+        Complex Systems, Abilities, Stat Systems, RNG Systems, and much more.</p>
 
         <h1>Video Demos</h1>
         <p>Watch the demonstrations of our custom systems below.</p>
@@ -221,11 +118,9 @@ And Much More.</p>
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/IA35cjfpipc" allowfullscreen></iframe>
             </div>
-
-  <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/9NnAmTjTAdqbq2E9" allowfullscreen></iframe>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/l1N3HHOfdgo" allowfullscreen></iframe>
             </div>
-            
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/0vPuRa0k5wA" allowfullscreen></iframe>
             </div>
@@ -249,18 +144,23 @@ And Much More.</p>
             <blockquote class="twitter-tweet">
                 <a href="https://twitter.com/QUSTRESO/status/1923647853387448470"></a>
             </blockquote>
-               <blockquote class="twitter-tweet">
-                    <a href="https://twitter.com/QUSTRESO/status/1923647853387448470"></a>
-                </blockquote>
-<blockquote class="twitter-tweet">
-    <a href="https://twitter.com/QUSTRESO/status/1896490307686224347"></a>
-</blockquote>
-<blockquote class="twitter-tweet">
-    <a href="https://twitter.com/QUSTRESO/status/1912034257696121199"></a>
-</blockquote>
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/QUSTRESO/status/1896490307686224347"></a>
+            </blockquote>
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/QUSTRESO/status/1912034257696121199"></a>
+            </blockquote>
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/QUSTRESO/status/1929134496995271000"></a>
+            </blockquote>
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/QUSTRESO/status/1923643992115380681"></a>
+            </blockquote>
+        </div>
+    </div>
 
     <!-- Twitter Embed Script -->
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
-
 </html>
+
