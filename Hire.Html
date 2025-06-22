@@ -2,207 +2,422 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Qustreso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Qustreso Studios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --success: #4bb543;
+        }
+        
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
+            padding: 0;
         }
 
-        /* NAVIGATION BAR */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
         .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            background-color: #000000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
             color: white;
-            padding: 12px 40px;
+            padding: 1rem 5%;
             position: sticky;
             top: 0;
-            z-index: 999;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
         .navbar img.logo {
-            position: absolute;
-            left: 40px;
-            height: 40px;
+            height: 2.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar img.logo:hover {
+            transform: scale(1.1);
         }
 
         .nav-buttons {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
         }
 
         .nav-buttons a {
             color: white;
             text-decoration: none;
-            font-size: 16px;
             font-weight: 500;
-            transition: color 0.2s ease-in-out;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
         }
 
         .nav-buttons a:hover {
-            color: #cccccc;
+            color: var(--primary);
         }
 
-        /* CONTENT STYLING */
-        .content {
-            max-width: 800px;
-            margin: 80px auto;
-            padding: 0 20px;
+        .nav-buttons a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-buttons a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Methods Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
 
-        .content h1 {
-            font-size: 40px;
-            margin-bottom: 30px;
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
-        .contact-method {
-            margin-bottom: 40px;
+        .contact-icon {
+            width: 5rem;
+            height: 5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
         }
 
-        .contact-method h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .contact-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
         }
 
         .contact-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #000;
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.2s ease, background-color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: auto;
         }
 
         .contact-button:hover {
-            transform: scale(1.05);
-            background-color: #333;
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
         }
 
-        /* EMAIL FORM STYLES */
+        /* Email Form */
         .email-form {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-            border-radius: 10px;
-            text-align: left;
+            grid-column: 1 / -1;
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .form-header p {
+            color: #666;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--dark);
         }
 
-        .form-group input,
-        .form-group textarea {
+        .form-control {
             width: 100%;
-            padding: 10px;
+            padding: 0.8rem 1rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             font-family: inherit;
-            font-size: 14px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .form-group textarea {
-            height: 150px;
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
             resize: vertical;
         }
 
         .submit-btn {
-            background-color: #000;
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 5px;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .submit-btn:hover {
-            background-color: #333;
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
         }
 
         .success-message {
-            color: green;
-            margin-top: 10px;
+            color: var(--success);
+            margin-top: 1rem;
             display: none;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-buttons {
+                margin-top: 1rem;
+                gap: 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .email-form {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
-    <div class="navbar">
-        <img class="logo" src="Images/Logo.jpg" alt="Qustreso Studios">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img class="logo" src="Images/Logo.jpg" alt="Qustreso Studios">
+        </div>
         <div class="nav-buttons">
             <a href="index.html">Home</a>
             <a href="PastWork.html">Past Work</a>
             <a href="Hire.html">Hire Me</a>
         </div>
-    </div>
+    </nav>
 
-    <!-- MAIN CONTENT -->
-    <div class="content">
-        <h1>To hire me you can</h1>
+    <!-- Main Content -->
+    <main class="container">
+        <header class="page-header">
+            <h1>Let's Work Together</h1>
+            <p>Get in touch with me through any of these methods. I typically respond within 24 hours.</p>
+        </header>
 
-        <div class="contact-method">
-            <h3>DM me on Discord</h3>
-            <a href="https://discord.com/users/1146923509856096397" class="contact-button" target="_blank">Message on Discord</a>
-        </div>
+        <div class="contact-grid">
+            <!-- Discord DM Card -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <h3>Message on Discord</h3>
+                <p>Direct message me on Discord for quick responses about your project needs.</p>
+                <a href="https://discord.com/users/1146923509856096397" class="contact-button" target="_blank">
+                    <i class="fab fa-discord"></i> Contact Now
+                </a>
+            </div>
 
-        <div class="contact-method">
-            <h3>Create a ticket on my Discord server</h3>
-            <a href="https://discord.gg/b5zEhYPKMv" class="contact-button" target="_blank">Open Ticket</a>
-        </div>
+            <!-- Discord Server Card -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                <h3>Create a Ticket</h3>
+                <p>Join my Discord server and create a ticket for official project inquiries.</p>
+                <a href="https://discord.gg/b5zEhYPKMv" class="contact-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Open Server
+                </a>
+            </div>
 
-        <div class="contact-method">
-            <h3>DM me on Twitter</h3>
-            <a href="https://x.com/QUSTRESO" class="contact-button" target="_blank">Message on Twitter</a>
-        </div>
+            <!-- Twitter Card -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <h3>DM on Twitter</h3>
+                <p>Send me a direct message on Twitter for general inquiries or quick questions.</p>
+                <a href="https://x.com/QUSTRESO" class="contact-button" target="_blank">
+                    <i class="fab fa-twitter"></i> Message Me
+                </a>
+            </div>
 
-        <div class="contact-method">
-            <h3>Or send me an email</h3>
+            <!-- Email Form -->
             <div class="email-form">
+                <div class="form-header">
+                    <h2>Send an Email</h2>
+                    <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+                </div>
+
                 <form id="contactForm" action="https://formspree.io/f/movwwvwo" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name:</label>
-                        <input type="text" id="name" name="name" required>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Your Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                    <div class="success-message" id="successMessage">
-                        You have successfully emailed admin@qustresostudios.com.
+
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        <div class="success-message" id="successMessage">
+                            <i class="fas fa-check-circle"></i> Your message has been sent successfully!
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
+    </main>
 
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
             fetch('https://formspree.io/f/movwwvwo', {
                 method: 'POST',
@@ -212,6 +427,9 @@
                 }
             })
             .then(response => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                
                 if (response.ok) {
                     document.getElementById('successMessage').style.display = 'block';
                     this.reset();
@@ -219,16 +437,20 @@
                         document.getElementById('successMessage').style.display = 'none';
                     }, 5000);
                 } else {
-                    alert('Oops! There was a problem sending your message.');
+                    alert('There was a problem sending your message. Please try again.');
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Oops! There was a problem sending your message.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                alert('There was a problem sending your message. Please try again.');
             });
         });
     </script>
 
 </body>
 </html>
+
+
 
