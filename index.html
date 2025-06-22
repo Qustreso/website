@@ -2,30 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Qustreso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qustreso Studios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
         }
 
         .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            background-color: #000000;
+            background-color: var(--dark);
             color: white;
-            padding: 12px 40px;
+            padding: 15px 40px;
             position: sticky;
             top: 0;
-            z-index: 999;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar img.logo {
-            position: absolute;
-            left: 40px;
             height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .navbar img.logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-buttons {
@@ -38,97 +52,183 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            transition: color 0.2s ease-in-out;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
         }
 
         .nav-buttons a:hover {
-            color: #cccccc;
+            color: #93c5fd;
         }
 
-        .content {
-            text-align: center;
-            padding: 60px 20px;
+        .nav-buttons a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
         }
 
-        .content img.header-img {
+        .nav-buttons a:hover::after {
             width: 100%;
-            max-height: 1750px;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto 20px;
         }
 
-        .content h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%), url('Images/Fredoka.png') no-repeat center center/cover;
+            position: relative;
         }
 
-        .content p {
-            font-size: 20px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: -1;
         }
 
-        .stats {
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--dark);
+        }
+
+        .stats-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+            background-color: white;
+        }
+
+        .stats-row {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            gap: 60px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
-            text-align: center;
-            gap: 80px;
-            margin: 60px 0 20px;
         }
 
         .stat-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             width: 220px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
 
         .stat-item img {
-            height: 250px;
+            height: 80px;
             margin-bottom: 20px;
-        }
-
-        .stat-item h3,
-        .stat-item h5 {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .stat-item.visible h3,
-        .stat-item.visible h5 {
-            opacity: 1;
-            transform: translateY(0);
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
         }
 
         .stat-item h3 {
-            font-size: 50px;
-            margin: 5px 0;
+            font-size: 2.5rem;
+            margin: 10px 0;
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .stat-item h5 {
-            font-size: 15px;
+            font-size: 1rem;
             font-weight: 400;
             margin: 0;
+            color: #64748b;
         }
 
-        .stat-bottom {
-            margin-top: 50px;
+        .clients-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f1f5f9;
+        }
+
+        .clients-section p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--dark);
         }
 
         .vouches {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            padding: 20px 40px 80px;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
             margin: 0 auto;
-            justify-items: center;
         }
 
         .vouches img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .vouches img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            
+            .nav-buttons {
+                margin-top: 15px;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .stats-row {
+                gap: 30px;
+            }
+            
+            .stat-item {
+                width: 160px;
+                padding: 20px;
+            }
+            
+            .stat-item h3 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -138,40 +238,42 @@
     <img class="logo" src="Images/Logo.jpg" alt="Qustreso Studios">
     <div class="nav-buttons">
         <a href="index.html">Home</a>
-        <a href="PastWork.html">Past work</a>
-        <a href="Hire.Html">Hire Me</a>
+        <a href="PastWork.html">Past Work</a>
+        <a href="Hire.html">Hire Me</a>
     </div>
 </div>
 
-<div class="content">
+<div class="hero">
     <h1>Qustreso Studios</h1>
     <h1>Bringing your Roblox games to life!</h1>
     <p>Professional Roblox development, assets, and commissions</p>
     <p>⬇️⬇️⬇️⬇️</p>
-    <img class="header-img" src="Images/Fredoka.png" alt="Header Banner">
 </div>
 
-<div class="stats">
-    <div class="stat-item visible">
-        <img src="Images/money-bag.png" alt="Money">
-        <h3>$6K+</h3>
-        <h5>Revenue closed in commissions,<br>through Roblox</h5>
+<div class="stats-container">
+    <div class="stats-row">
+        <div class="stat-item">
+            <img src="Images/money-bag.png" alt="Money">
+            <h3 data-target="6000">0</h3>
+            <h5>Revenue closed in commissions through Roblox</h5>
+        </div>
+        <div class="stat-item">
+            <img src="Images/user.png" alt="User">
+            <h3 data-target="3100000">0</h3>
+            <h5>Visits contributed through Roblox games</h5>
+        </div>
     </div>
-    <div class="stat-item">
-        <img src="Images/user.png" alt="User">
-        <h3 data-target="3100000">0</h3>
-        <h5>Visits contributed<br>through Roblox games</h5>
-    </div>
-</div>
-<div class="stats stat-bottom">
-    <div class="stat-item visible">
-        <img src="Images/clock.png" alt="Clock">
-        <h3>2+</h3>
-        <h5>Years in the development business</h5>
+    
+    <div class="stats-row">
+        <div class="stat-item">
+            <img src="Images/clock.png" alt="Clock">
+            <h3 data-target="2">0</h3>
+            <h5>Years in the development business</h5>
+        </div>
     </div>
 </div>
 
-<div class="content">
+<div class="clients-section">
     <p>We have 50+ satisfied clients</p>
 </div>
 
@@ -226,48 +328,70 @@
 </div>
 
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-                entry.target.classList.add('visible');
-
-                const h3 = entry.target.querySelector('h3');
-                const target = parseInt(h3.getAttribute('data-target'), 10);
-                if (isNaN(target)) return;
-
-                let current = 0;
-                const increment = Math.max(1, target / 100);
-
-                const countUp = () => {
-                    current += increment;
-                    if (current < target) {
-                        h3.textContent = formatNumber(Math.floor(current));
-                        requestAnimationFrame(countUp);
-                    } else {
-                        h3.textContent = formatNumber(target);
-                    }
-                };
-
-                countUp();
-            }
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Intersection Observer for counting animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const h3 = entry.target.querySelector('h3');
+                    const target = parseInt(h3.getAttribute('data-target'), 10);
+                    
+                    if (isNaN(target)) return;
+                    
+                    let current = 0;
+                    const duration = 2000; // Animation duration in ms
+                    const increment = target / (duration / 16); // 60fps
+                    
+                    const animateCount = () => {
+                        current += increment;
+                        if (current < target) {
+                            h3.textContent = formatNumber(Math.floor(current));
+                            requestAnimationFrame(animateCount);
+                        } else {
+                            h3.textContent = formatNumber(target) + (target === 2 ? '+' : '+');
+                        }
+                    };
+                    
+                    animateCount();
+                    
+                    // Stop observing after animation starts
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
         });
-    }, {
-        threshold: 0.5
+        
+        // Observe all stat items
+        document.querySelectorAll('.stat-item').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Number formatting function
+        function formatNumber(num) {
+            if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + 'M';
+            if (num >= 1_000) return (num / 1_000).toFixed(1) + 'K';
+            if (num >= 1) return num.toFixed(0);
+            return num;
+        }
+        
+        // Add hover effect to navbar logo
+        const logo = document.querySelector('.navbar img.logo');
+        if (logo) {
+            logo.addEventListener('mouseenter', () => {
+                logo.style.transform = 'scale(1.05)';
+            });
+            logo.addEventListener('mouseleave', () => {
+                logo.style.transform = 'scale(1)';
+            });
+        }
     });
-
-    document.querySelectorAll('.stat-item').forEach(item => {
-        observer.observe(item);
-    });
-
-    function formatNumber(num) {
-        if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + 'M+';
-        if (num >= 1_000) return (num / 1_000).toFixed(1) + 'K+';
-        return num;
-    }
 </script>
 
 </body>
 </html>
+
 
 
 
