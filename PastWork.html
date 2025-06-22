@@ -2,30 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Qustreso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qustreso Studios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
         .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            background-color: #000000;
+            background-color: #000;
             color: white;
-            padding: 12px 40px;
+            padding: 15px 40px;
             position: sticky;
             top: 0;
             z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar img.logo {
-            position: absolute;
-            left: 40px;
             height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .navbar img.logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-buttons {
@@ -38,11 +45,28 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            transition: color 0.2s ease-in-out;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
         }
 
         .nav-buttons a:hover {
-            color: #cccccc;
+            color: #93c5fd;
+        }
+
+        .nav-buttons a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s;
+        }
+
+        .nav-buttons a:hover::after {
+            width: 100%;
         }
 
         .content {
@@ -51,17 +75,19 @@
         }
 
         .content h1 {
-            font-size: 48px;
+            font-size: 3rem;
             margin-bottom: 10px;
+            color: #2563eb;
         }
 
         .content p {
-            font-size: 20px;
+            font-size: 1.25rem;
+            margin-bottom: 30px;
         }
 
         .embed-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 40px;
             padding: 20px;
             justify-items: center;
@@ -75,6 +101,14 @@
             height: 0;
             width: 100%;
             max-width: 560px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .video-wrapper:hover {
+            transform: scale(1.05);
         }
 
         .video-wrapper iframe {
@@ -89,6 +123,27 @@
         .twitter-tweet {
             max-width: 560px;
             width: 100%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .nav-buttons {
+                margin-top: 15px;
+                gap: 15px;
+            }
+
+            .content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -99,15 +154,15 @@
         <img class="logo" src="Images/Logo.jpg" alt="Qustreso Studios">
         <div class="nav-buttons">
             <a href="index.html">Home</a>
-            <a href="PastWork.html">Past work</a>
-            <a href="Hire.Html">Hire Me</a>
+            <a href="PastWork.html">Past Work</a>
+            <a href="Hire.html">Hire Me</a>
         </div>
     </div>
 
     <!-- CONTENT -->
     <div class="content">
         <p>I can do anything from:<br>
-        MMO RPG Systems, Combat System, Main Menu System, Data Store's,<br>
+        MMO RPG Systems, Combat System, Main Menu System, Data Stores,<br>
         Complex Systems, Abilities, Stat Systems, RNG Systems, and much more.</p>
 
         <h1>Video Demos</h1>
@@ -163,4 +218,5 @@
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
+
 
